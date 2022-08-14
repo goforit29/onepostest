@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: serve
-          image: 705653065823.dkr.ecr.ap-northeast-2.amazonaws.com/onepos-serve-backend
+          image: 705653065823.dkr.ecr.ap-northeast-2.amazonaws.com/onepos-serve-backend:latest
           ports:
             - containerPort: 8080
           resources:
