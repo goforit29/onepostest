@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: serve
+  name: serve-backend
   labels:
-    app: serve
+    app: serve-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: serve
+      app: serve-backend
   template:
     metadata:
       labels:
-        app: serve
+        app: serve-backend
     spec:
       containers:
-        - name: serve
+        - name: serve-backend
           image: 705653065823.dkr.ecr.ap-northeast-2.amazonaws.com/onepos-serve-backend:latest
           ports:
             - containerPort: 8080

@@ -18,7 +18,7 @@ kind: Service
 metadata:
   name: serve-backend
   annotations:
-    alb.ingress.kubernetes.io/healthcheck-path: "/contents/aws"
+    alb.ingress.kubernetes.io/healthcheck-path: "/actuator/health"
 spec:
   selector:
     app: serve-backend

@@ -11,11 +11,40 @@ spec:
   rules:
   - http:
       paths:
-        - path: /contents
+        - path: /serve
           pathType: Prefix
           backend:
             service:
-              name: "demo-flask-backend"
+              name: serve-backend
               port:
                 number: 80
+        - path: /cook
+          pathType: Prefix
+          backend:
+            service:
+              name: kitchen-backend
+              port:
+                number: 80
+        - path: /order
+          pathType: Prefix
+          backend:
+            service:
+              name: order-backend
+              port:
+                number: 80
+        - path: /pay
+          pathType: Prefix
+          backend:
+            service:
+              name: pay-backend
+              port:
+                number: 80
+        - path: /menu
+          pathType: Prefix
+          backend:
+            service:
+              name: store-backend
+              port:
+                number: 80
+
 

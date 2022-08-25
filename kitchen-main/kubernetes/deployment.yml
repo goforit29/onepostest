@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kitchen-backend
+  labels:
+    app: kitchen-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kitchen-backend
+  template:
+    metadata:
+      labels:
+        app: kitchen-backend
+    spec:
+      containers:
+        - name: kitchen-backend
+          image: 705653065823.dkr.ecr.ap-northeast-2.amazonaws.com/onepos-kitchen-backend:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5

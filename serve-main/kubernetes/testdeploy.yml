@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: mario
-          image: pengdai/docker-supermario
+          image: pengbai/docker-supermario
