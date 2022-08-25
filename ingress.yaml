@@ -1,0 +1,50 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "backend-ingress"
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /serve
+          pathType: Prefix
+          backend:
+            service:
+              name: serve-backend
+              port:
+                number: 80
+        - path: /cook
+          pathType: Prefix
+          backend:
+            service:
+              name: kitchen-backend
+              port:
+                 number: 80
+        # - path: /order
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: order-backend
+        #       port:
+        #         number: 80
+        # - path: /pay
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: pay-backend
+        #       port:
+        #         number: 80
+        # - path: /menu
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: store-backend
+        #       port:
+        #         number: 80
+
+
