@@ -11,14 +11,14 @@ spec:
   rules:
   - http:
       paths:
-        - path: /serve
+        - path: /serves
           pathType: Prefix
           backend:
             service:
               name: serve-backend
               port:
                 number: 80
-        - path: /cook
+        - path: /kitchens
           pathType: Prefix
           backend:
             service:

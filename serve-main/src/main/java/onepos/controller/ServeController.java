@@ -34,13 +34,13 @@ import java.util.List;
     }
 
     //서빙목록 조회
-    @GetMapping("/serve/lists")
+    @GetMapping("/serves/lists")
     public List<Serve> getServeList() {
       return serveService.getServeList();
     }
 
     //서빙 단건 상세조회
-    @GetMapping("/serve/lists/{serveId}")
+    @GetMapping("/serves/lists/{serveId}")
     public  java.util.Optional<Serve> getServeDetail(@PathVariable("serveId") int serveId) {
       return serveService.getServeDetail(serveId);
     }
